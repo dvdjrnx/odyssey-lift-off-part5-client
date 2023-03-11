@@ -20,7 +20,7 @@ const GET_MODULE_AND_PARENT_TRACK = gql`
       modules {
         id
         title
-        length
+        durationInSeconds
       }
     }
   }
@@ -37,8 +37,15 @@ const Module = ({ moduleId, trackId }) => {
 
   return (
     <Layout fullWidth>
-      <QueryResult error={error} loading={loading} data={data}>
-        <ModuleDetail track={data?.track} module={data?.module} />
+      <QueryResult
+        error={error}
+        loading={loading}
+        data={data}
+      >
+        <ModuleDetail
+          track={data?.track}
+          module={data?.module}
+        />
       </QueryResult>
     </Layout>
   );

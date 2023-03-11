@@ -10,7 +10,7 @@ const mockModule = {
   thumbnail: null,
   videoUrl: 'https://youtu.be/dlKzlksOUtU',
   topic: 'Cat-stronomy',
-  length: 164,
+  durationInSeconds: 164,
 };
 
 const mockParentTrack = {
@@ -19,7 +19,7 @@ const mockParentTrack = {
   description: '# Pulchra vehi vidit misera sola armenta secabatur\n\n',
   thumbnail:
     'https://res.cloudinary.com/dety84pbu/image/upload/v1598465568/nebula_cat_djkt9r.jpg',
-  trackLength: 2377,
+  trackDurationInSeconds: 2377,
   modulesCount: 10,
   numberOfViews: 51,
   author: {
@@ -31,7 +31,7 @@ const mockParentTrack = {
     {
       id: 'l_0',
       title: 'Exploring Time and Space',
-      length: 258,
+      durationInSeconds: 258,
     },
   ],
 };
@@ -41,6 +41,11 @@ describe('Module Detail View', () => {
   afterEach(cleanup);
 
   it('renders without error', () => {
-    render(<ModuleDetail module={mockModule} track={mockParentTrack} />);
+    render(
+      <ModuleDetail
+        module={mockModule}
+        track={mockParentTrack}
+      />
+    );
   });
 });

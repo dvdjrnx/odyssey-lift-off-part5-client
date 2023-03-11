@@ -10,7 +10,7 @@ const TRACKS = gql`
       id
       title
       thumbnail
-      length
+      durationInSeconds
       modulesCount
       author {
         name
@@ -29,9 +29,16 @@ const Tracks = () => {
 
   return (
     <Layout grid>
-      <QueryResult error={error} loading={loading} data={data}>
+      <QueryResult
+        error={error}
+        loading={loading}
+        data={data}
+      >
         {data?.tracksForHome?.map((track, index) => (
-          <TrackCard key={track.id} track={track} />
+          <TrackCard
+            key={track.id}
+            track={track}
+          />
         ))}
       </QueryResult>
     </Layout>
